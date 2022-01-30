@@ -5,5 +5,17 @@
     "rust-analyzer.checkOnSave.allTargets": false,
     "rust-analyzer.checkOnSave.extraArgs": [
         "--bins"
+    ],
+    "cSpell.ignoreWords": [
+        "EXTI",
+        "GPIOA",
+        "Monotonics",
+        "USART",
+        "afio",
+        "cfgr",
+        "defmt",
+        "mapr",
+        "rtic",
+        "sysclk"
     ]
 }
