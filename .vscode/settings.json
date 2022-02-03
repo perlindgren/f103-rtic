@@ -11,10 +11,12 @@
         "GPIOA",
         "Monotonics",
         "USART",
+        "adcclk",
         "afio",
         "cfgr",
         "defmt",
         "mapr",
+        "pclk",
         "rtic",
         "sysclk"
     ]

@@ -34,3 +34,46 @@ $ cargo rb serial
   (HOST) INFO  success!
 ───────────────────────────────────────────────────────────────────────────────
 ```
+
+## midi_raw
+
+Emitting a simple sequence of note on/off messages.
+
+``` console
+DEFMT_LOG=trace cargo rrb midi_raw
+...
+INFO  init
+TRACE note on
+TRACE note off
+TRACE note on
+...
+```
+
+Notice, the linux midi driver will block after first message if no listener attached.
+
+Useful commands in Linux to view a midi stream:
+
+``` console
+> lsusb 
+...
+Bus 001 Device 024: ID 16c0:27de Van Ooijen Technische Informatica MIDI class devices
+...
+
+> amidi -l
+...
+IO  hw:4,0,0  MIDI Device MIDI 1
+...
+
+> aconnect -i
+...
+client 32: 'MIDI Device' [type=kernel,card=4]
+    0 'MIDI Device MIDI 1'
+...
+
+> aseqdump -p 32
+...
+Waiting for data. Press Ctrl+C to end.
+Source  Event                  Ch  Data
+  0:1   Port subscribed            143:0 -> 128:0
+ 32:0   Note on                 0, note 72, velocity 64
+...
